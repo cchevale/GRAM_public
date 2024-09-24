@@ -18,8 +18,11 @@ In GRAM, the relations between Actors and Actions are used to record the `Role` 
 
 Action nodes usually have at least one `Agent` and (or) one `Patient`. However, Actors can have several other `Roles` in an Action, which are listed and explained below:
 
+### 2.7 Action->Text Relations
+
 | Action->Actor relation type | Description |
 | :--- | :--- |
+| `ACCORDING_TO` | Relates an action's `assetId` to the Actor that provides information about it (it thus also provides information about the point of view provided on an action) |
 | `HAS_ADDRESSEE` | The actor receives a verbal message through the action and becomes co-knowledgeable |
 | `HAS_AGENT` | The actor is the agent of the action (i.e., the active semantic subject) |
 | `HAS_BENEFACTIVE` | The actor derives a benefit from the action but is not its agent |
@@ -142,27 +145,3 @@ In order to keep track of dependencies between spacial entities, we use Place-to
 | Place->Place relation type | description |
 | :--- | :--- |
 | `IS_PART_OF` | Used when a place entity belongs to a larger place entity (a polity, an administrative unit, a natural space) |
-
-### 2.7 Action->Text Relations
-
-In order to keep track of the origin of the information contained in the graph, each action is related to one or several texts with an `ACCORDING_TO` relation.
-
-| Action->Text relation type | Description |
-| :--- | :--- |
-| `ACCORDING_TO` | Relates an action to *the* text that provides information about it (it thus also provides information about the point of view provided on an action) |
-
-Note that:
-
-- When different texts provide *complementary information* on the same action, the action can be related to multiple texts;
-- When different texts provide *different views* about an action, various instance of the same action are recorded and related using the `SAME-AS` relationship (see below);
-- When *various points of view* about one action are present in the same text (as in the case of different witnesses providing different narratives), the relation properties will have to be used to point to the relevant section of the text (property keys to de defined).
-
-> Also note that we are considering the use of a more elaborate sequence to keep track not only of the source text, but also of the voices through which the actions are known. IWe would thus replace the systematic `(Action)-[ACCORDING_TO]->(Text)` with an `(Action)-[HAS_VOICE]->(Actor)` in which the `[HAS_VOICE]` relation would record the text source as a property.
-
-### 2.8 Text->Person Relations
-
-A text entity is always related to actions. When the authors of a text are known, the text node is related to the person nodes representing each of the authors.
-
-| Action->Text relation type | Description |
-| :--- | :--- |
-| `HAS_AUTHOR` | the person is the author of the Text |
