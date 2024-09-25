@@ -40,9 +40,9 @@ Action nodes usually have at least one `Agent` and (or) one `Patient`. However, 
 
 #### 2.1.2 Action->Actor Relation Properties
 
-In addition to their type, Action->Actor relations can have multiple properties. Action->Actor relation properties help keep track of more granular contextual information about the relation, like its intensity, the compliance of the actors, the incentives triggering their involvement, or the contextual identities that they may have in the action (e.g., status, title or capacity at the time of the action). 
+In addition to their type, Action->Actor relations can have multiple properties. Generally these should reflect the granularity of the sources, meaning that this information should be recorded only when the information is evident from the source itself. In such instances, Action->Actor relation properties help keep track of more granular contextual information about the relation as provided by the text – like its intensity, the compliance of the actors, the incentives triggering their involvement, or the contextual identities that they may have in the action (e.g., status, title or capacity at the time of the action).
 
-At the very least, this kind of information is recorded under general `role qualifiers`. These qualifiers are broad and rudimentary. They will require further categorization based on a larger sample of cases discussed collectively.
+We also suggest using `role qualifiers`. These qualifiers are broad and rudimentary. They will require further categorization based on a larger sample of cases discussed collectively.
 
 > Relation properties always come in pairs: an emic expression and an etic interpretation/translation
 
@@ -59,11 +59,13 @@ At the very least, this kind of information is recorded under general `role qual
 
 ### 2.2 Action->Action Relations
 
-The main relation type between two action nodes in GRAM is the `NEXT` relationship, which allows to build sequences of actions and thus introduces a crucial dynamic dimension into the graph. Other Action->Action relations should be limited to a minimum (to avoid overloading). However, we will have to deal with simultaneous and conditional actions that may (or may not) require specific relation types. 
+The main relation type between two action nodes in GRAM is the `NEXT` relationship, which allows to build sequences of actions and thus introduces a crucial dynamic dimension into the graph. In this way, graphs can come to reflect narrative structures of sources, and be used to understand how actions enable other actions.
+
+Other Action->Action relations should be limited to a minimum (to avoid overloading). However, we will have to deal with simultaneous and conditional actions that may (or may not) require specific relation types. 
 
 - With regard to simultaneous actions, we still have to test whether graphing two actions following another one is sufficient to keep track of simultaneousness, or if this requires an additional `SIMULTANEOUS` relation. 
 
-- Contitional actions may also require the use of `IF_YES` and `IF_NOT` relations between actions. This also has to be tested.
+- Conditional actions may also require the use of `IF_YES` and `IF_NOT` relations between actions. This also has to be tested.
 
 #### 2.2.1 Action->Action Relation Types
 
